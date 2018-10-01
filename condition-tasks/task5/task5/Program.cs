@@ -6,11 +6,13 @@ namespace task5
     {
         static void Main(string[] args)
         {
-            int discount = 0;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            double discount = 0;
             int age = 0;
             int inputcheck = 0;
             int question = 1;
-            decimal price = 16;
+            double price = 16;
             string input;
 
             while (true)
@@ -36,7 +38,7 @@ namespace task5
                         Console.Write("\nSyötä ikäsi: ");
                         break;
                     case 5:
-                        Console.Write($"\nLipun hinta on {(100 - discount) * price / 100} euroa.\n\nAloita alusta painamalla ENTER.\n");
+                        Console.Write($"\nLipun hinta on {(1 - discount) * price:C}.\n\nAloita alusta painamalla ENTER.\n");
                         break;
                 }
 
@@ -65,15 +67,15 @@ namespace task5
                         switch (question)
                         {
                             case 1:
-                                discount = 15;
+                                discount = 0.15;
                                 question++;
                                 break;
                             case 2:
-                                discount = discount + 45;
+                                discount = discount + 0.45;
                                 question = 5;
                                 break;
                             case 3:
-                                discount = 50;
+                                discount = 0.50;
                                 question = 5;
                                 break;
                         }
@@ -81,9 +83,9 @@ namespace task5
                     else if (question == 4)
                     {
                         if (age < 7)
-                            discount = 100;
+                            discount = 1;
                         else if (age >= 7 && age <= 15 || age >= 65)
-                            discount = 50;
+                            discount = 0.50;
                         question++;
                     }
                     else
